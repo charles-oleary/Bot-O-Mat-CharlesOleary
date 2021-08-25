@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, inial-scale=1, shrink-to-fit=no">
+		<title>Bot-O-Mat - RedVentures Coding Assessment</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<!-- Bootstrap CSS -->
+		                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+				                <link rel="stylesheet" href="https://p/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<style>
+	body {
+		text-align:center;
+		background-color: blue;
+		margin-top:15px;
+		margin-bottom:15px;
+
+	}
+	button {
+		padding:10px;
+		margin:10px;
+		align:left;
+	}
+</style>
+<script>
+	function createRobot() {
+		var rName = $("#robotName").val();
+		var rType = $("#robotType").val();
+		
+		const robot = {
+			name: rName,
+			type: rType
+		};
+
+		$(".robots").append(
+					"<div class='jumbotron'>" +
+						"<div class='row'>" +
+						"<div class='col' id='robotCol'>" +
+							"<h5>Name: " + robot.name + "</h5>" +
+							"<h5>Type: " + robot.type + "</h5>" +
+							"<img src='robot.png'>" +
+							"<div id='loadArea'></div>" +
+						"</div>" +
+						"<div class='col' >" + 
+			"<button type='button' class='btn btn-primary' value='dishes' onclick='doTask(this.value)'>Do Dishes</button><br>" +
+			"<button type='button' class='btn btn-primary' value='sweep' onclick='doTask(this.value)'>Sweep House</button><br>" +
+			"<button type='button' class='btn btn-primary' value='laundry' onclick='doTask(this.value)'>Do Launry</button><br>" +
+			"<button type='button' class='btn btn-primary' value='recycle' onclick='doTask(this.value)'>Recycle</button><br>" +
+			"<button type='button' class='btn btn-primary' value='sammich' onclick='doTask(this.value)'>Make Sammich</button><br>" +
+			"<button type='button' class='btn btn-primary' value='mow' onclick='doTask(this.value)'>Mow the Lawn</buton><br>"+
+			"<button type='button' class='btn btn-primary' value='rake' onclick='doTask(this.value)'>Rake Leaves</button><br>"+
+			"<button type='button' class='btn btn-primary' value='dog' onclick='doTask(this.value)'>Give Dog Bath</button><br>" +
+			"<button type='button' class='btn btn-primary' value='bake' onclick='doTask(this.value)'>Bake Cookies</button><br>" +
+			"<button type='button' class='btn btn-primary' value='carwash' onclick='doTask(this.value)'>Wash Car</button>" +
+						
+						"</div>" +
+						"</div>" +
+					"</div>"
+		);
+	}
+
+	function doTask (val) {
+		if(val == "dishes") {
+			loadTask(1000, "dishes done"); 			
+		} else if (val == "sweep") {
+			loadTask(3000, "house swept");
+		} else if (val == "laundry") {
+			loadTask(10000, "laundry done");
+		} else if (val == "recycle") {
+			loadTask(4000, "recycling taken out");
+		} else if (val == "sammich") {
+			loadTask(7000, "sammich made");
+		} else if (val == "mow") {
+			loadTask(20000, "lawm mowed");
+		} else if (val == "rake") {
+			loadTask(18000, "leaves raked");
+		} else if (val == "dog") {
+			loadTask(14500, "dog bathed");
+		} else if (val == "bake") {
+			loadTask(8000, "cookies baked");
+		} else if (val == "carwash") {
+			loadTask(20000, "car washed");
+		}
+		
+		
+	}
+
+	function loadTask(timeOut, taskDone) {
+		$("#loadArea").append("<h3>loading</h3>");
+		setTimeout(() => {
+			$("#robotCol").append("<p>" + taskDone + "</p>");
+			$("#loadArea").html("");
+		}, timeOut);
+	}
+
+</script>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="jumbotron">
+				<h1 style=> Bot-O-Mat </h1>
+				<form id="robotForm">
+					<label for="robotName">Please Enter Robot Name</label>
+					<input type="text" id="robotName"><br>
+
+					<label for="robotType">Please Select Robot Type</label>
+					<select id="robotType">
+						<option value="Unipedal">Unipedal</option>
+						<option value="Bipedal">Bipedal</option>
+						<option value="Quadrupedal">Quadrupedal</option>
+						<option value="Arachnid">Arachnid</option>
+						<option value="Radial">Radial</option>
+						<option value="Aeronautical">Aeronautical</option>
+					</select> <br>
+
+					<button type="button" onclick="createRobot()" class="btn btn-primary">Click to create Robot</button>
+				</form>
+
+			</div>
+			<div class="robots">
+
+			</div>
+
+			
+		</div>
+
+		<!-- Optional Javascript jQuery Popper and Bootstrap JS -->
+		                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+					                     <script src="https://cdnjs.cloudflare.com/ajax/libs/js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+									                  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	</body>
+<style>
+	col {
+		align:left;
+	}
+</style>
+</html>
